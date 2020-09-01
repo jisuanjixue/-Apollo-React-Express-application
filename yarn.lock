@@ -521,7 +521,7 @@
     "@types/qs" "*"
     "@types/range-parser" "*"
 
-"@types/express@*":
+"@types/express@*", "@types/express@^4.17.1":
   version "4.17.7"
   resolved "https://registry.npm.taobao.org/@types/express/download/@types/express-4.17.7.tgz?cache=0&sync_timestamp=1594074128322&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fexpress%2Fdownload%2F%40types%2Fexpress-4.17.7.tgz#42045be6475636d9801369cd4418ef65cdb0dd59"
   integrity sha1-QgRb5kdWNtmAE2nNRBjvZc2w3Vk=
@@ -639,6 +639,21 @@
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-10.17.27.tgz?cache=0&sync_timestamp=1594397594455&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-10.17.27.tgz#391cb391c75646c8ad2a7b6ed3bbcee52d1bdf19"
   integrity sha1-ORyzkcdWRsitKntu07vO5S0b3xk=
 
+"@types/passport-strategy@^0.2.35":
+  version "0.2.35"
+  resolved "https://registry.npm.taobao.org/@types/passport-strategy/download/@types/passport-strategy-0.2.35.tgz#e52f5212279ea73f02d9b06af67efe9cefce2d0c"
+  integrity sha1-5S9SEieepz8C2bBq9n7+nO/OLQw=
+  dependencies:
+    "@types/express" "*"
+    "@types/passport" "*"
+
+"@types/passport@*", "@types/passport@^1.0.1":
+  version "1.0.4"
+  resolved "https://registry.npm.taobao.org/@types/passport/download/@types/passport-1.0.4.tgz#1b35c4e197560d3974fa5f71711b6e9cce0711f0"
+  integrity sha1-GzXE4ZdWDTl0+l9xcRtunM4HEfA=
+  dependencies:
+    "@types/express" "*"
+
 "@types/qs@*":
   version "6.9.3"
   resolved "https://registry.npm.taobao.org/@types/qs/download/@types/qs-6.9.3.tgz#b755a0934564a200d3efdf88546ec93c369abd03"
@@ -694,6 +709,13 @@
     "@types/uglify-js" "*"
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
+
+"@types/ws@^6.0.3":
+  version "6.0.4"
+  resolved "https://registry.npm.taobao.org/@types/ws/download/@types/ws-6.0.4.tgz#7797707c8acce8f76d8c34b370d4645b70421ff1"
+  integrity sha1-d5dwfIrM6PdtjDSzcNRkW3BCH/E=
+  dependencies:
+    "@types/node" "*"
 
 "@types/ws@^7.0.0":
   version "7.2.6"
@@ -2259,6 +2281,11 @@ depd@~1.1.2:
   resolved "https://registry.npm.taobao.org/depd/download/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
 
+depd@~2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/depd/download/depd-2.0.0.tgz#b696163cc757560d09cf22cc8fad1571b79e76df"
+  integrity sha1-tpYWPMdXVg0JzyLMj60Vcbeedt8=
+
 deprecated-decorator@^0.1.6:
   version "0.1.6"
   resolved "https://registry.npm.taobao.org/deprecated-decorator/download/deprecated-decorator-0.1.6.tgz#00966317b7a12fe92f3cc831f7583af329b86c37"
@@ -2619,6 +2646,20 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   integrity sha1-l+gBqgUt8CRU3kawK/YhZCzchQI=
   dependencies:
     homedir-polyfill "^1.0.1"
+
+express-session@^1.17.1:
+  version "1.17.1"
+  resolved "https://registry.npm.taobao.org/express-session/download/express-session-1.17.1.tgz#36ecbc7034566d38c8509885c044d461c11bf357"
+  integrity sha1-Nuy8cDRWbTjIUJiFwETUYcEb81c=
+  dependencies:
+    cookie "0.4.0"
+    cookie-signature "1.0.6"
+    debug "2.6.9"
+    depd "~2.0.0"
+    on-headers "~1.0.2"
+    parseurl "~1.3.3"
+    safe-buffer "5.2.0"
+    uid-safe "~2.1.5"
 
 express@^4.17.1:
   version "4.17.1"
@@ -3011,6 +3052,22 @@ graphql-extensions@^0.12.4:
     apollo-server-env "^2.4.5"
     apollo-server-types "^0.5.1"
 
+graphql-passport@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.npm.taobao.org/graphql-passport/download/graphql-passport-0.6.3.tgz#325c81b8992283fe28783d7be6dd16be226c1254"
+  integrity sha1-MlyBuJkig/4oeD175t0WviJsElQ=
+  dependencies:
+    passport-strategy "^1.0.0"
+  optionalDependencies:
+    "@types/express" "^4.17.1"
+    "@types/passport" "^1.0.1"
+    "@types/passport-strategy" "^0.2.35"
+    "@types/ws" "^6.0.3"
+    express "^4.17.1"
+    graphql "^14.5.8"
+    subscriptions-transport-ws "^0.9.16"
+    ws "7.x"
+
 graphql-subscriptions@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/graphql-subscriptions/download/graphql-subscriptions-1.1.0.tgz#5f2fa4233eda44cf7570526adfcf3c16937aef11"
@@ -3044,7 +3101,7 @@ graphql-upload@^8.0.2:
     http-errors "^1.7.3"
     object-path "^0.11.4"
 
-graphql@^14.5.3:
+graphql@^14.5.3, graphql@^14.5.8:
   version "14.7.0"
   resolved "https://registry.npm.taobao.org/graphql/download/graphql-14.7.0.tgz?cache=0&sync_timestamp=1594127722285&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgraphql%2Fdownload%2Fgraphql-14.7.0.tgz#7fa79a80a69be4a31c27dda824dc04dac2035a72"
   integrity sha1-f6eagKab5KMcJ92oJNwE2sIDWnI=
@@ -4516,6 +4573,19 @@ pascalcase@^0.1.1:
   resolved "https://registry.npm.taobao.org/pascalcase/download/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
   integrity sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
 
+passport-strategy@1.x.x, passport-strategy@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/passport-strategy/download/passport-strategy-1.0.0.tgz#b5539aa8fc225a3d1ad179476ddf236b440f52e4"
+  integrity sha1-tVOaqPwiWj0a0XlHbd8ja0QPUuQ=
+
+passport@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.npm.taobao.org/passport/download/passport-0.4.1.tgz#941446a21cb92fc688d97a0861c38ce9f738f270"
+  integrity sha1-lBRGohy5L8aI2XoIYcOM6fc48nA=
+  dependencies:
+    passport-strategy "1.x.x"
+    pause "0.0.1"
+
 path-browserify@0.0.1:
   version "0.0.1"
   resolved "https://registry.npm.taobao.org/path-browserify/download/path-browserify-0.0.1.tgz#e6c4ddd7ed3aa27c68a20cc4e50e1a4ee83bbc4a"
@@ -4555,6 +4625,11 @@ path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.npm.taobao.org/path-to-regexp/download/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
+
+pause@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npm.taobao.org/pause/download/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
+  integrity sha1-HUCLP9t2kjuVQ9lvtMnf1TXZy10=
 
 pbkdf2@^3.0.3:
   version "3.1.1"
@@ -4814,6 +4889,11 @@ querystringify@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npm.taobao.org/querystringify/download/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
   integrity sha1-YOWl/WSn+L+k0qsu1v30yFutFU4=
+
+random-bytes@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/random-bytes/download/random-bytes-1.0.0.tgz#4f68a1dc0ae58bd3fb95848c30324db75d64360b"
+  integrity sha1-T2ih3Arli9P7lYSMMDJNt11kNgs=
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
   version "2.1.0"
@@ -5157,6 +5237,11 @@ safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://registry.npm.taobao.org/safe-buffer/download/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
   integrity sha1-mR7GnSluAxN0fVm9/St0XDX4go0=
+
+safe-buffer@5.2.0:
+  version "5.2.0"
+  resolved "https://registry.npm.taobao.org/safe-buffer/download/safe-buffer-5.2.0.tgz#b74daec49b1148f88c64b68d49b1e815c1f2f519"
+  integrity sha1-t02uxJsRSPiMZLaNSbHoFcHy9Rk=
 
 safe-buffer@5.2.1, safe-buffer@>=5.1.0, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@^5.1.2, safe-buffer@^5.2.0, safe-buffer@~5.2.0:
   version "5.2.1"
@@ -5865,6 +5950,13 @@ typedarray@^0.0.6:
   resolved "https://registry.npm.taobao.org/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+uid-safe@~2.1.5:
+  version "2.1.5"
+  resolved "https://registry.npm.taobao.org/uid-safe/download/uid-safe-2.1.5.tgz#2b3d5c7240e8fc2e58f8aa269e5ee49c0857bd3a"
+  integrity sha1-Kz1cckDo/C5Y+Komnl7knAhXvTo=
+  dependencies:
+    random-bytes "~1.0.0"
+
 undefsafe@^2.0.2:
   version "2.0.3"
   resolved "https://registry.npm.taobao.org/undefsafe/download/undefsafe-2.0.3.tgz#6b166e7094ad46313b2202da7ecc2cd7cc6e7aae"
@@ -6279,6 +6371,11 @@ write-file-atomic@^3.0.0:
     is-typedarray "^1.0.0"
     signal-exit "^3.0.2"
     typedarray-to-buffer "^3.1.5"
+
+ws@7.x:
+  version "7.3.1"
+  resolved "https://registry.npm.taobao.org/ws/download/ws-7.3.1.tgz?cache=0&sync_timestamp=1593925439808&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fws%2Fdownload%2Fws-7.3.1.tgz#d0547bf67f7ce4f12a72dfe31262c68d7dc551c8"
+  integrity sha1-0FR79n985PEqct/jEmLGjX3FUcg=
 
 ws@^5.2.0:
   version "5.2.2"
