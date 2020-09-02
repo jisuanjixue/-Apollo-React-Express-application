@@ -27,9 +27,27 @@ const users = [
   }
 ];
 
+const posts = [
+  {
+    _id: '1',
+    title: 'Maurice',
+    content: '好样的',
+  },
+  {
+    _id: '2',
+    title: '不是双方',
+    content: '好样的三扥放过',
+  }
+];
+
 const User = {
   getUsers: () => users,
   addUser: (user) => users.push(user),
+}
+
+const Post = {
+  getPosts: () => posts,
+  addPost: (post) => posts.push(post),
 }
 // #3 Import GraphQL type definitions
 const typeDefs = require('./schema');
@@ -81,7 +99,7 @@ const server = new ApolloServer({
   // typeDefs: [typeDefsAuth, typeDefsPost], 
   typeDefs, 
   resolvers: [resolversAuth,resolversPost], 
-  context: ({ req, res }) => buildContext({ req, res, User }),
+  context: ({ req, res }) => buildContext({ req, res, User, Post }),
   playground: {
     settings: {
       'request.credentials': 'same-origin',

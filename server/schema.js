@@ -1,3 +1,4 @@
+const { gql } = require('apollo-server-express');
 const typeDefsPost = require('./modules/post/graphqlSchema')
 const typeDefsAuth = require('./modules/auth/graphqlSchema')
 

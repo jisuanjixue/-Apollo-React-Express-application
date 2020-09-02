@@ -1,5 +1,6 @@
 // #1 Import the model created with mongoose
-const Post = require('./models/post');
+// const Post = require('./models/post');
+const uuid = require('uuid/v4');
 
 // #2 Create resolver functions to handle GraphQL queries
 /**
@@ -9,7 +10,7 @@ const Post = require('./models/post');
 const resolvers = {
   Query: {
     // Query which returns posts list
-    posts: () => Post.find({}),
+    posts: (parent, args, context) => context.Post.getPosts(),
   },
 
 /**
@@ -18,11 +19,14 @@ const resolvers = {
  * The mutation resolvers must return the created object.
  */
   Mutation: {
-    addPost: (parent, post) => {
+    addPost:  (parent, {title, content}, context) => {
       // Create a new record in the database
-      const newPost = new Post({ title: post.title, content: post.content });
+      // new Post({ title: post.title, content: post.content });
+      const newPost = { _id: uuid(), title, content} 
       // Save the record and return it
-      return newPost.save();
+      // return newPost.save();
+      context.Post.addPost(newPost);
+      return  { post: newPost };
     }
   }
 };
