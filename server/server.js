@@ -5,7 +5,9 @@ const { ApolloServer } = require('apollo-server-express');
 // import { authMiddleware } from './auth_middleware';
 const uuid = require('uuid/v4');
 const passport = require('passport')
-const { GraphQLLocalStrategy, buildContext } =  require('graphql-passport')
+const { GraphQLLocalStrategy, buildContext } = require('graphql-passport')
+// 解决 N + 1问题
+const DataLoader = require('dataloader');
 
 // #2 Import mongoose
 // const mongoose = require('./config/database');
@@ -86,20 +88,32 @@ const app = express();
 
 app.use(session({
   genid: (req) => uuid(),
+  // 对session id 相关的cookie 进行签名
   secret: SESSION_SECRECT,
   resave: false,
+  // 是否保存未初始化的会话
   saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 3, // 设置 session 的有效时间，单位毫秒
+  },
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
+const friendLoader = new DataLoader(
+  keys => Friend.find({ _id: { $in: keys } })
+)
+const loaders = {
+  friend: friendLoader
+}
+
 // #5 Initialize an Apollo server
-const server = new ApolloServer({ 
+const server = new ApolloServer({
   // typeDefs: [typeDefsAuth, typeDefsPost], 
-  typeDefs, 
-  resolvers: [resolversAuth,resolversPost], 
-  context: ({ req, res }) => buildContext({ req, res, User, Post }),
+  typeDefs,
+  resolvers: [resolversAuth, resolversPost],
+  context: ({ req, res }) => buildContext({ loaders, req, res, User, Post }),
   playground: {
     settings: {
       'request.credentials': 'same-origin',
@@ -113,5 +127,5 @@ server.applyMiddleware({ app });
 // #8 Set the port that the Express application will listen to
 app.listen(4000);
 // app.listen({ port: 3000 }, () => {
-  console.log(`Server running on http://localhost:${4000}${server.graphqlPath}`);
+console.log(`Server running on http://localhost:${4000}${server.graphqlPath}`);
 // });
